@@ -11,7 +11,7 @@ http://codingpy.com/article/getting-started-with-jupyter-notebook-part-2/
 A2A3 for sound senser
 2 for LED
 56789 by default for motor
-10 11 for bozzer
+10 11 for buzzer
 # Protocal
 ## music notes
 1:do
