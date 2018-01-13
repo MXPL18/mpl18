@@ -1,0 +1,1 @@
+<xml version="0.98" board="Microduino/mCookie-Core (328p)[16MHzatmega328]" xmlns="http://www.w3.org/1999/xhtml"><block type="serial_println" id="%P*eP}QqaIj[RJMnJ0BT" x="-362" y="392"><field name="serial_select">Serial</field><value name="CONTENT"><block type="microduinoMicAnal" id="R{pw.c@UKC[UBZVDw2#7"><field name="analogPin">A2</field></block></value></block></xml>
