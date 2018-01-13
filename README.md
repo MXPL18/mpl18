@@ -47,6 +47,6 @@ function: show the light turn on or not
 ## motor
 mtr.xml
 function: run the windmill
-## bozzer
+## buzzer
 bzr.xml
 function: play the sound

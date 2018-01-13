@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+-<xml board="Microduino/mCookie-Core (328p)[16MHzatmega328]" version="0.98">
+
+
+-<block y="77" x="66" id="-AKzr8`AApvpD.pt)JXn" type="controls_tone2">
+
+
+-<value name="PIN">
+
+
+-<shadow id="XAX!DMCDu+SO9kL#KN3Z" type="pins_digital">
+
+<field name="PIN">10</field>
+
+</shadow>
+
+</value>
+
+
+-<value name="FREQUENCY">
+
+
+-<shadow id="*;;YejzlRo8Kg[5Ci-hE" type="tone_notes">
+
+<field name="STAT">131</field>
+
+</shadow>
+
+</value>
+
+
+-<value name="DURATION">
+
+
+-<shadow id="s5IOW!yt]e@_Ao02rG?3" type="math_number">
+
+<field name="NUM">1000</field>
+
+</shadow>
+
+</value>
+
+
+-<next>
+
+
+-<block id="GCy|=Nf]=:Dr+L[=~iqf" type="controls_notone">
+
+
+-<value name="PIN">
+
+
+-<shadow id="?vD:(6rD(aI8gRKvrCfz" type="pins_digital">
+
+<field name="PIN">10</field>
+
+</shadow>
+
+</value>
+
+</block>
+
+</next>
+
+</block>
+
+</xml>
