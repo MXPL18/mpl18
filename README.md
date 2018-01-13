@@ -9,7 +9,7 @@ http://codingpy.com/article/getting-started-with-jupyter-notebook-part-2/
 
 # windmill interface description
 A2A3 for sound senser
-A6A7 for LED
+2 for LED
 56789 by default for motor
 10 11 for bozzer
 # Protocal
