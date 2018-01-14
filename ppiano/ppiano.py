@@ -16,7 +16,7 @@ song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
 song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
 
 
-f = open("song.csv")
+f = open("mysongs.csv")
 data = f.read()
 numbers = data.split('\n')
 song1 = numbers[0].split(',')
@@ -48,23 +48,32 @@ print(album)
 songid1=album["tinkelstar"]
 print("songid is %d\n" %(songid1))
 
+song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
 #ser=serial.Serial(port='COM4')
 #ser=serial.Serial(port]='/dev/ttymodem542')
 #ifha;oifhad;oifh
 def run():
     action = "empty"
     while action != "q":
-        print ('select which song do you want to play ? 1,2 q and others for quit')
+        print ('select for the number--1 or name--2')
         action = input("> ")
         if action == "1":
-            print("song name is:")
-            print(song1[0])
+            print("please input song number")
+            song_number=int(input("."))
+            print(songs[song_number])
             for notes in song1:
                 ser.write(notes.encode())
                 print ("send:"+notes)
                 time.sleep(1)
         elif action == "2":
-            ser.write('2'.encode())
+            print("song name is:")
+            song_name=input(".")
+            song_number=song_dic[song_name]-1
+            print(songs[song_number])
+            for notes in song1:
+                ser.write(notes.encode())
+                print ("send:"+notes)
+                time.sleep(1)
 
         else :
             return
