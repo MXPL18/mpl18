@@ -2,6 +2,11 @@ import serial
 import serial.tools.list_ports
 import time
 
+def get_song_dictionary()
+    #put your code here，please refer to code with album
+
+    return dictioinary
+
 print ('hello')
 ports = list(serial.tools.list_ports.comports())
 print (ports)
@@ -37,11 +42,11 @@ for song in songs:
     n=n+1
 print(album)
 
-
-
-songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
+#songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
+songs_dictionary=get_song_dictionary(songs)
 
 def run():
+
     action = "empty"
     while action != "q":
         print ('select 1.input song sequence, number,select 2 , input song namen , q and others for quit')
