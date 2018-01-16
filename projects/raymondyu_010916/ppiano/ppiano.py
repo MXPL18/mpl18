@@ -4,15 +4,11 @@ import time
 
 def get_song_dictionary(list)
     #put your code here，please refer to code with album
-    album={}
-    album["tinkelstar"]=0
-    n=0
+    dictionary={}
+    song_num=1
     for song in songs:
-        songname=song[0]
-        print("songname is %s" %(songname))
-        album[songname]=n
-        n=n+1
-    print(album)
+        dictionary[song[0]]=song_num
+        song_num=+1
     return dictioinary
 
 print ('hello')
@@ -39,7 +35,7 @@ for row in rows:
     song=row.split(',')
     songs.append(song)
 print(songs)
-     
+
 
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 songs_dictionary=get_song_dictionary(songs)
