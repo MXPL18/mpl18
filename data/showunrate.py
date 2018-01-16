@@ -33,6 +33,7 @@ data=[1,3,5,7,3,1,2,5,10,9,11,62]
 #    date_time.append(date)
 #print(date_time)
 #plt.plot(date_time,first_twelve['UNRATE'])
+#plt.plot(date_time,data)
 plt.plot(xaxis,data)
 #plt.plot()
 #plt.xticks(rotation=90)
