@@ -2,14 +2,14 @@ import serial
 import serial.tools.list_ports
 import time
 
-def get_song_dictionary(list)
-    #put your code here，please refer to code with album
-    dictionary={}
-    song_num=1
-    for song in songs:
-        dictionary[song[0]]=song_num
-        song_num=+1
-    return dictioinary
+
+
+def get_song_dictionary(input_lst):
+    dictionary=[]
+    for i in songs:
+        dictionary[song[0]]=song_number
+        song_number+=1
+    return dictionary
 
 print ('hello')
 ports = list(serial.tools.list_ports.comports())
@@ -29,17 +29,29 @@ data = f.read()
 rows = data.split('\n')
 print(rows[0:5])
 
-
 songs=[]
 for row in rows:
     song=row.split(',')
     songs.append(song)
 print(songs)
 
+album={}
+album["tinkelstar"]=0
+n=0
+for song in songs:
+    songname=song[0]
+    print("songname is %s" %(songname))
+    album[songname]=n
+    n=n+1
+print(album)
 
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 songs_dictionary=get_song_dictionary(songs)
 
+#song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
+#ser=serial.Serial(port='COM4')
+#ser=serial.Serial(port]='/dev/ttymodem542')
+#ifha;oifhad;oifh
 def run():
 
     action = "empty"
@@ -63,7 +75,7 @@ def run():
             song_number=songs_dictionary[song_name]
             print("song number is:")
             print(song_number)
-            for notes in songs[song_number]:
+            for notes in songs[song_number-1]:
                 ser.write(notes.encode())
                 print ("send:"+notes)
                 time.sleep(1)
