@@ -16,7 +16,7 @@ song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
 song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
 
 
-f = open("song.csv")
+f = open("mysongs.csv")
 data = f.read()
 numbers = data.split('\n')
 song1 = numbers[0].split(',')
@@ -54,17 +54,37 @@ print("songid is %d\n" %(songid1))
 def run():
     action = "empty"
     while action != "q":
-        print ('select which song do you want to play ? 1,2 q and others for quit')
+        print ('select which number of song do you want to play ? 1,2 q and others for quit')
         action = input("> ")
         if action == "1":
-            print("song name is:")
-            print(song1[0])
+            song_number=input('>>')
+            print("song number is:")
+            print(song_number)
+            song1=songs[song_number]
             for notes in song1:
                 ser.write(notes.encode())
                 print ("send:"+notes)
                 time.sleep(1)
         elif action == "2":
-            ser.write('2'.encode())
+            print('Please input the name')
+            song_name= input('>>>')
+            print('song_name is:')
+            print(song_name)
+            song_dic={
+                'tinkelstar':1,
+                'dadaotuhao':2,
+                'RadetzkyMarsch':3,
+                'RadetzkyMarsch2':4,
+                'xjbsong':5,
+                'clash':6
+            }
+            song_number=song_dic[song_name]
+            print(song_number)
+            song1=songs[song_number]
+            for notes in song1:
+                ser.write(notes.encode())
+                print ("send:"+notes)
+                time.sleep(1)
 
         else :
             return
