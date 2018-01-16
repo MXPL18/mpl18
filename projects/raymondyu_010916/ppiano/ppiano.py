@@ -2,9 +2,17 @@ import serial
 import serial.tools.list_ports
 import time
 
-def get_song_dictionary()
+def get_song_dictionary(list)
     #put your code here，please refer to code with album
-
+    album={}
+    album["tinkelstar"]=0
+    n=0
+    for song in songs:
+        songname=song[0]
+        print("songname is %s" %(songname))
+        album[songname]=n
+        n=n+1
+    print(album)
     return dictioinary
 
 print ('hello')
@@ -17,8 +25,8 @@ for p in ports:
     else :
 	    print ("No Arduino Device was found connected to the computer")
 
-#song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
-#song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
+song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
+song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
 
 f = open('mysongs.csv', 'r')
 data = f.read()
@@ -31,9 +39,7 @@ for row in rows:
     song=row.split(',')
     songs.append(song)
 print(songs)
-
-album={}
-album["tinkelstar"]=0
+     
 
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 songs_dictionary=get_song_dictionary(songs)
@@ -67,3 +73,5 @@ def run():
                 time.sleep(1)
         else :
             return
+
+run()
