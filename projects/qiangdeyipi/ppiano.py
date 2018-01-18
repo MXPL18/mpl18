@@ -2,40 +2,14 @@ import serial
 import serial.tools.list_ports
 import time
 
-f = open('mysongs.csv', 'r')
-data = f.read()
-rows = data.split('\n')
-print(rows[0:5])
-
-print("Hello")
-
-songs=[]
-for row in rows:
-    song=row.split(',')
-    songs.append(song)
-print(songs)
-
-lines = []
-
-print("Hello Again")
-for xxx in songs:
-    lines.append(xxx[0])
-print(lines[3])
 
 
-
-def get_song_dictionary():
-    dictionary = {}
-    n = 1
-    for line in lines:
-        dictioinary[line] = n
-        n += 1
-    return dictioinary
-
-
-print(dictionary["tinkelstar"])
-
-
+def get_song_dictionary(input_lst):
+    dictionary=[]
+    for i in songs:
+        dictionary[song[0]]=song_number
+        song_number+=1
+    return dictionary
 
 print ('hello')
 ports = list(serial.tools.list_ports.comports())
@@ -47,25 +21,34 @@ for p in ports:
     else :
 	    print ("No Arduino Device was found connected to the computer")
 
-#song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
-#song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
-
-<<<<<<< HEAD
-=======
-
+song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
+song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
 
 f = open('mysongs.csv', 'r')
 data = f.read()
 rows = data.split('\n')
 print(rows[0:5])
 
->>>>>>> b35c64fc1abdd96c78353404208ebe20784966ff
+songs=[]
+for row in rows:
+    song=row.split(',')
+    songs.append(song)
+print(songs)
 
-
+album={}
+album["tinkelstar"]=0
+n=0
+for song in songs:
+    songname=song[0]
+    print("songname is %s" %(songname))
+    album[songname]=n
+    n=n+1
+print(album)
 
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
+songs_dictionary=get_song_dictionary(songs)
 
-song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
+#song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
 #ser=serial.Serial(port='COM4')
 #ser=serial.Serial(port]='/dev/ttymodem542')
 #ifha;oifhad;oifh
@@ -89,12 +72,14 @@ def run():
             song_name = input("> ")
             print("songs name is:")
             print(song_name)
-            song_number=get_songs_dictionary[song_name]
+            song_number=songs_dictionary[song_name]
             print("song number is:")
             print(song_number)
-            for notes in songs[song_number]:
+            for notes in songs[song_number-1]:
                 ser.write(notes.encode())
                 print ("send:"+notes)
                 time.sleep(1)
         else :
             return
+
+run()

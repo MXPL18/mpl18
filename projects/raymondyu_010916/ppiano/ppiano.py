@@ -2,9 +2,13 @@ import serial
 import serial.tools.list_ports
 import time
 
-def get_song_dictionary()
+def get_song_dictionary(list)
     #put your code here，please refer to code with album
-
+    dictionary={}
+    song_num=1
+    for song in songs:
+        dictionary[song[0]]=song_num
+        song_num=+1
     return dictioinary
 
 print ('hello')
@@ -32,15 +36,6 @@ for row in rows:
     songs.append(song)
 print(songs)
 
-album={}
-album["tinkelstar"]=0
-n=0
-for song in songs:
-    songname=song[0]
-    print("songname is %s" %(songname))
-    album[songname]=n
-    n=n+1
-print(album)
 
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 songs_dictionary=get_song_dictionary(songs)
