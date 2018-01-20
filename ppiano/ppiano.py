@@ -5,9 +5,9 @@ import time
 f = open('mysongs.csv', 'r')
 data = f.read()
 rows = data.split('\n')
-print(rows[0:5])
+#print(rows[0:5])
 
-print("Hello")
+print("Hello1")
 
 songs=[]
 for row in rows:
@@ -15,29 +15,8 @@ for row in rows:
     songs.append(song)
 print(songs)
 
-lines = []
+print ('hello2')
 
-print("Hello Again")
-for xxx in songs:
-    lines.append(xxx[0])
-print(lines[3])
-
-
-
-def get_song_dictionary():
-    dictionary = {}
-    n = 1
-    for line in lines:
-        dictioinary[line] = n
-        n += 1
-    return dictioinary
-
-
-print(dictionary["tinkelstar"])
-
-
-
-print ('hello')
 ports = list(serial.tools.list_ports.comports())
 print (ports)
 for p in ports:
@@ -49,20 +28,6 @@ for p in ports:
 
 #song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
 #song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
-
-<<<<<<< HEAD
-=======
-
-
-f = open('mysongs.csv', 'r')
-data = f.read()
-rows = data.split('\n')
-print(rows[0:5])
-
->>>>>>> b35c64fc1abdd96c78353404208ebe20784966ff
-
-
-
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 
 song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
@@ -70,7 +35,6 @@ song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'
 #ser=serial.Serial(port]='/dev/ttymodem542')
 #ifha;oifhad;oifh
 def run():
-
     action = "empty"
     while action != "q":
         print ('select 1.input song sequence, number,select 2 , input song namen , q and others for quit')
@@ -81,9 +45,11 @@ def run():
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
-                ser.write(notes.encode())
-                print ("send:"+notes)
-                time.sleep(1)
+                if notes.isdigit():
+        #            ser.write(notes.encode())
+                    print ("send:"+notes)
+                    if int(notes) < 40:
+                        time.sleep(1)
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
@@ -98,3 +64,5 @@ def run():
                 time.sleep(1)
         else :
             return
+
+run()
