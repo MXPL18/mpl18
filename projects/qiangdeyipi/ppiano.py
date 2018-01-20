@@ -45,7 +45,8 @@ for song in songs:
     n=n+1
 print(album)
 
-LEDdict={"start_LED":43,"stop_LED":44}
+dic={"start_LED":'43',"stop_LED":'44',"start_fan":"41","stop_fan":'42'}
+
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 songs_dictionary=get_song_dictionary(songs)
 
@@ -70,8 +71,9 @@ def run():
                     print ("send:"+notes)
                     time.sleep(1)
                 else:
-                    if notes in LEDdict:
-                        s_notes=LEDdict[notes]
+                    if notes in dic:
+                        s_notes=dic[notes]
+                        print(s_notes)
                         ser.write(s_notes.encode())
                         print ("send:"+s_notes)
         elif action == "2":
