@@ -2,10 +2,40 @@ import serial
 import serial.tools.list_ports
 import time
 
-def get_song_dictionary()
-    #put your code here，please refer to code with album
+f = open('mysongs.csv', 'r')
+data = f.read()
+rows = data.split('\n')
+print(rows[0:5])
 
+print("Hello")
+
+songs=[]
+for row in rows:
+    song=row.split(',')
+    songs.append(song)
+print(songs)
+
+lines = []
+
+print("Hello Again")
+for xxx in songs:
+    lines.append(xxx[0])
+print(lines[3])
+
+
+
+def get_song_dictionary():
+    dictionary = {}
+    n = 1
+    for line in lines:
+        dictioinary[line] = n
+        n += 1
     return dictioinary
+
+
+print(dictionary["tinkelstar"])
+
+
 
 print ('hello')
 ports = list(serial.tools.list_ports.comports())
@@ -20,6 +50,8 @@ for p in ports:
 #song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
 #song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
 
+<<<<<<< HEAD
+=======
 
 
 f = open('mysongs.csv', 'r')
@@ -27,18 +59,11 @@ data = f.read()
 rows = data.split('\n')
 print(rows[0:5])
 
+>>>>>>> b35c64fc1abdd96c78353404208ebe20784966ff
 
-songs=[]
-for row in rows:
-    song=row.split(',')
-    songs.append(song)
-print(songs)
 
-album={}
-album["tinkelstar"]=0
 
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
-songs_dictionary=get_song_dictionary(songs)
 
 song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
 #ser=serial.Serial(port='COM4')
@@ -64,7 +89,7 @@ def run():
             song_name = input("> ")
             print("songs name is:")
             print(song_name)
-            song_number=songs_dictionary[song_name]
+            song_number=get_songs_dictionary[song_name]
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
