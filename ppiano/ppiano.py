@@ -46,10 +46,12 @@ def run():
             print(song_number)
             for notes in songs[song_number]:
                 if notes.isdigit():
-        #            ser.write(notes.encode())
+                    ser.write(notes.encode())
                     print ("send:"+notes)
+                    ser.write("A".encode())
+                    print ("send:A")
                     if int(notes) < 40:
-                        time.sleep(1)
+                        time.sleep(0.1)
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
