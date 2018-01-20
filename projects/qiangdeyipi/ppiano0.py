@@ -2,14 +2,10 @@ import serial
 import serial.tools.list_ports
 import time
 
+def get_song_dictionary()
+    #put your code here，please refer to code with album
 
-
-def get_song_dictionary(input_lst):
-    dictionary={}
-    for i in range(len(songs)):
-        song=songs[i]
-        dictionary[song[0]]=i
-    return dictionary
+    return dictioinary
 
 print ('hello')
 ports = list(serial.tools.list_ports.comports())
@@ -21,13 +17,16 @@ for p in ports:
     else :
 	    print ("No Arduino Device was found connected to the computer")
 
-song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
-song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
+#song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
+#song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
+
+
 
 f = open('mysongs.csv', 'r')
 data = f.read()
 rows = data.split('\n')
 print(rows[0:5])
+
 
 songs=[]
 for row in rows:
@@ -37,19 +36,11 @@ print(songs)
 
 album={}
 album["tinkelstar"]=0
-n=0
-for song in songs:
-    songname=song[0]
-    print("songname is %s" %(songname))
-    album[songname]=n
-    n=n+1
-print(album)
 
-LEDdict={"start_LED":43,"stop_LED":44}
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 songs_dictionary=get_song_dictionary(songs)
 
-#song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
+song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
 #ser=serial.Serial(port='COM4')
 #ser=serial.Serial(port]='/dev/ttymodem542')
 #ifha;oifhad;oifh
@@ -65,15 +56,9 @@ def run():
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
-                if notes.isdigit():
-                    ser.write(notes.encode())
-                    print ("send:"+notes)
-                    time.sleep(1)
-                else:
-                    if notes in LEDdict:
-                        s_notes=LEDdict[notes]
-                        ser.write(s_notes.encode())
-                        print ("send:"+s_notes)
+                ser.write(notes.encode())
+                print ("send:"+notes)
+                time.sleep(1)
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
@@ -82,11 +67,9 @@ def run():
             song_number=songs_dictionary[song_name]
             print("song number is:")
             print(song_number)
-            for notes in songs[song_number-1]:
+            for notes in songs[song_number]:
                 ser.write(notes.encode())
                 print ("send:"+notes)
                 time.sleep(1)
         else :
             return
-
-run()
