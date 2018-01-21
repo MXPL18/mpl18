@@ -61,7 +61,7 @@ def run():
                     ser.write("A".encode())
                     print ("send:A")
                     if int(notes) < 40:
-                        time.sleep(0.5)
+                        time.sleep(0.1)
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
