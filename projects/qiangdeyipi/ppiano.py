@@ -45,7 +45,7 @@ for song in songs:
     n=n+1
 print(album)
 
-dic={"start_LED":'43',"stop_LED":'44',"start_fan":"41","stop_fan":'42'}
+dic={"start_r_LED":'43',"stop_LED":'44',"start_fan":"41","stop_fan":'42',"start_g_LED":'45'}
 
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 songs_dictionary=get_song_dictionary(songs)
@@ -66,11 +66,25 @@ def run():
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
-                if notes.isdigit():
-                    ser.write(notes.encode())
+                note=['0','0']
+                if '|' in notes:
+                    note=notes.split('|')
+                elif '-' in notes:
+                    note=notes.split('-')
+                else:
+                    note[0]=notes
+                if note[0].isdigit():
+                    ser.write(note[0].encode())
                     ser.write("A".encode())
-                    print ("send:"+notes)
-                    time.sleep(1)
+                    print ("send:"+note[0])
+                    pai=int(note[1])
+                    if pai==2:
+                        sl=1/2
+                    elif pai==4:
+                        sl=2
+                    else:
+                        sl=1
+                    time.sleep(sl)
                 else:
                     if notes in dic:
                         s_notes=dic[notes]
@@ -78,6 +92,7 @@ def run():
                         ser.write(s_notes.encode())
                         print ("send:"+s_notes)
                         ser.write("A".encode())
+            ser.write("50".encode())
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
