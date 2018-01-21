@@ -2,12 +2,21 @@ import serial
 import serial.tools.list_ports
 import time
 
-def get_song_dictionary()
-    #put your code here，please refer to code with album
+f = open('mysongs.csv', 'r')
+data = f.read()
+rows = data.split('\n')
+#print(rows[0:5])
 
-    return dictioinary
+print("Hello1")
 
-print ('hello')
+songs=[]
+for row in rows:
+    song=row.split(',')
+    songs.append(song)
+print(songs)
+
+print ('hello2')
+
 ports = list(serial.tools.list_ports.comports())
 print (ports)
 for p in ports:
@@ -25,18 +34,9 @@ data = f.read()
 rows = data.split('\n')
 print(rows[0:5])
 
-
-songs=[]
-for row in rows:
-    song=row.split(',')
-    songs.append(song)
-print(songs)
-
-album={}
-album["tinkelstar"]=0
-
+=======
+>>>>>>> 956811d1e5789db86eb3e8297c0f0d46e2f7d2e0
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
-songs_dictionary=get_song_dictionary(songs)
 
 def run():
 
@@ -64,9 +64,13 @@ new_mysongs = songs[1:6]
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
-                ser.write(notes.encode())
-                print ("send:"+notes)
-                time.sleep(1)
+                if notes.isdigit():
+                    ser.write(notes.encode())
+                    print ("send:"+notes)
+                    ser.write("A".encode())
+                    print ("send:A")
+                    if int(notes) < 40:
+                        time.sleep(0.1)
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
