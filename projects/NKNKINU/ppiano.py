@@ -1,11 +1,14 @@
 import serial
 import serial.tools.list_ports
 import time
+
+
+
 def get_song_dictionary(input_lst):
-    dictionary=[]
-    for i in songs:
-        dictionary[song[0]]=song_number
-        song_number+=1
+    dictionary={}
+    for i in range(len(songs)):
+        song=songs[i]
+        dictionary[song[0]]=i
     return dictionary
 
 print ('hello')
@@ -42,6 +45,8 @@ for song in songs:
     n=n+1
 print(album)
 
+dic={"start_LED":'43',"stop_LED":'44',"start_fan":"41","stop_fan":'42'}
+
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 songs_dictionary=get_song_dictionary(songs)
 
@@ -61,9 +66,16 @@ def run():
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
-                ser.write(notes.encode())
-                print ("send:"+notes)
-                time.sleep(1)
+                if notes.isdigit():
+                    ser.write(notes.encode())
+                    print ("send:"+notes)
+                    time.sleep(1)
+                else:
+                    if notes in dic:
+                        s_notes=dic[notes]
+                        print(s_notes)
+                        ser.write(s_notes.encode())
+                        print ("send:"+s_notes)
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
