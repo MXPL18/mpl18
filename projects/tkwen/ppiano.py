@@ -79,16 +79,18 @@ def run():
             for notes in songs[song_number]:
                 ser.write(notes.encode())
                 print ("send:"+notes)
+                ser.write("A".encode())
+                print("send:A")
                 time.sleep(1)
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
             print("songs name is:")
             print(song_name)
-            song_number=get_song_dictionary(song_name)
+            song_number=get_song_dictionary[song_name]
             print("song number is:")
             print(song_number)
-            for notes in songs[song_number]:
+            for notes in songs[song_number-1]:
                 ser.write(notes.encode())
                 print ("send:"+notes)
                 time.sleep(1)
