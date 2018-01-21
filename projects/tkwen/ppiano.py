@@ -22,12 +22,13 @@ for xxx in songs:
     lines.append(xxx[0])
 print(lines[3])
 
-def song_dictionary():
+
+
+def get_song_dictionary(xxxx):
     dictionary = {}
     for n in range(len(songs)):
         song = songs[n]
-        song_name = song[0]
-        dictionary[song_name]= n
+        dictionary[song[0]] = n
     return dictionary
 
 
@@ -49,7 +50,6 @@ for p in ports:
 
 
 
-
 f = open('mysongs.csv', 'r')
 data = f.read()
 rows = data.split('\n')
@@ -61,7 +61,7 @@ print(rows[0:5])
 
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 
-#song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
+song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
 #ser=serial.Serial(port='COM4')
 #ser=serial.Serial(port]='/dev/ttymodem542')
 #ifha;oifhad;oifh
@@ -77,39 +77,23 @@ def run():
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
-                if notes.isdigit():
-                    ser.write(notes.encode())
-                    print ("send:"+notes)
-                    ser.write("A".encode())
-                    if int(notes)< 40:
-                        time.sleep(0.5)
-                    else:
-                        time.sleep(0.1)
-                else:
-                    time.sleep(1)
-
-
+                ser.write(notes.encode())
+                print ("send:"+notes)
+                ser.write("A".encode())
+                print("send:A")
+                time.sleep(1)
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
             print("songs name is:")
             print(song_name)
-            print(song_dictionary)
-            song_dic=song_dictionary()
-            song_number = song_dic[song_name]
+            song_number=get_song_dictionary[song_name]
             print("song number is:")
             print(song_number)
-            for notes in songs[song_number]:
-                if notes.isdigit():
-                    ser.write(notes.encode())
-                    print ("send:"+notes)
-                    ser.write("A".encode())
-                    if int(notes)< 40:
-                        time.sleep(0.5)
-                    else:
-                        time.sleep(0.1)
-                else:
-                    time.sleep(1)
+            for notes in songs[song_number-1]:
+                ser.write(notes.encode())
+                print ("send:"+notes)
+                time.sleep(1)
         else :
             return
 run()
