@@ -24,16 +24,14 @@ print(lines[3])
 
 
 
-def get_song_dictionary():
+def get_song_dictionary(xxxx):
     dictionary = {}
-    n = 1
-    for line in lines:
-        dictioinary[line] = n
-        n += 1
-    return dictioinary
+    for n in range(len(songs)):
+        song = songs[n]
+        dictionary[song[0]] = n
+    return dictionary
 
 
-print(dictionary["tinkelstar"])
 
 
 
@@ -50,8 +48,6 @@ for p in ports:
 #song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
 #song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
 
-<<<<<<< HEAD
-=======
 
 
 f = open('mysongs.csv', 'r')
@@ -59,7 +55,7 @@ data = f.read()
 rows = data.split('\n')
 print(rows[0:5])
 
->>>>>>> b35c64fc1abdd96c78353404208ebe20784966ff
+
 
 
 
@@ -89,7 +85,7 @@ def run():
             song_name = input("> ")
             print("songs name is:")
             print(song_name)
-            song_number=get_songs_dictionary[song_name]
+            song_number=get_song_dictionary(song_name)
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
@@ -98,3 +94,4 @@ def run():
                 time.sleep(1)
         else :
             return
+run()
