@@ -1,11 +1,12 @@
 import serial
 import serial.tools.list_ports
 import time
-
-def get_song_dictionary()
-    #put your code here，please refer to code with album
-
-    return dictioinary
+def get_song_dictionary(input_lst):
+    dictionary=[]
+    for i in songs:
+        dictionary[song[0]]=song_number
+        song_number+=1
+    return dictionary
 
 print ('hello')
 ports = list(serial.tools.list_ports.comports())
@@ -20,21 +21,10 @@ for p in ports:
 song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
 song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
 
-<<<<<<< HEAD
-
-f = open("mysongs.csv")
-data = f.read()
-numbers = data.split('\n')
-song1 = numbers[0].split(',')
-
-
-=======
->>>>>>> cd78b38e84a9c7507cc43ace52bf5a78efbe4b02
 f = open('mysongs.csv', 'r')
 data = f.read()
 rows = data.split('\n')
 print(rows[0:5])
-
 
 songs=[]
 for row in rows:
@@ -55,20 +45,14 @@ print(album)
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 songs_dictionary=get_song_dictionary(songs)
 
+#song_dic={'tinkelstar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'RadetzkyMarsch2':4,'xjbsong':5,'clash royale':6}
+#ser=serial.Serial(port='COM4')
+#ser=serial.Serial(port]='/dev/ttymodem542')
+#ifha;oifhad;oifh
 def run():
 
     action = "empty"
     while action != "q":
-<<<<<<< HEAD
-        print ('select which number of song do you want to play ? 1,2 q and others for quit')
-        action = input("> ")
-        if action == "1":
-            song_number=input('>>')
-            print("song number is:")
-            print(song_number)
-            song1=songs[song_number]
-            for notes in song1:
-=======
         print ('select 1.input song sequence, number,select 2 , input song namen , q and others for quit')
         action = input("> ")
         if action=='1' :
@@ -77,33 +61,10 @@ def run():
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
->>>>>>> cd78b38e84a9c7507cc43ace52bf5a78efbe4b02
                 ser.write(notes.encode())
                 print ("send:"+notes)
                 time.sleep(1)
         elif action == "2":
-<<<<<<< HEAD
-            print('Please input the name')
-            song_name= input('>>>')
-            print('song_name is:')
-            print(song_name)
-            song_dic={
-                'tinkelstar':1,
-                'dadaotuhao':2,
-                'RadetzkyMarsch':3,
-                'RadetzkyMarsch2':4,
-                'xjbsong':5,
-                'clash':6
-            }
-            song_number=song_dic[song_name]
-            print(song_number)
-            song1=songs[song_number]
-            for notes in song1:
-                ser.write(notes.encode())
-                print ("send:"+notes)
-                time.sleep(1)
-
-=======
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
             print("songs name is:")
@@ -111,11 +72,10 @@ def run():
             song_number=songs_dictionary[song_name]
             print("song number is:")
             print(song_number)
-            for notes in songs[song_number]:
+            for notes in songs[song_number-1]:
                 ser.write(notes.encode())
                 print ("send:"+notes)
                 time.sleep(1)
->>>>>>> cd78b38e84a9c7507cc43ace52bf5a78efbe4b02
         else :
             return
 
