@@ -50,18 +50,11 @@ for p in ports:
 #song1 = ['star','1','1','5','5','6','6','5','5','4','4','3','3','2','2','1','1']
 #song2 = ['hallo','1','2','3','1','1','2','3','1','3','4','5','3','4','5']
 
-<<<<<<< HEAD
-=======
-
 
 f = open('mysongs.csv', 'r')
 data = f.read()
 rows = data.split('\n')
 print(rows[0:5])
-
->>>>>>> b35c64fc1abdd96c78353404208ebe20784966ff
-
-
 
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 
