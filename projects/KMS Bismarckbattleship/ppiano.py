@@ -36,8 +36,8 @@ def run():
         print ('select 1.input song sequence, number,select 2 , input song namen , q and others for quit')
         action = input("> ")
         if action=='1' :
-        print ('select in which song do you want to play:for example：1,2,3,4,5, q and others for quit')
-        song_number = int(input("> "))
+            print ('select in which song do you want to play:for example：1,2,3,4,5, q and others for quit')
+            song_number = int(input("> "))
             print("song number is:")
             print(song_number)
             for notes in songs[song_number]:
@@ -47,25 +47,22 @@ def run():
                     ser.write("A".encode())
                     print ("send:A")
                     if int(notes) < 40:
-                        time.sleep(0.1)
-        elif action == "2":
-            print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
-            song_name = input("> ")
-            import pandas as pd
-            mysongs=pd.read_csv('mysongs.csv')
-            import numpy as np
-            print ('select in which song do you want to play:for example：1,2,3,4,5, q and others for quit')
-            song_number = int(input("> "))
-            songs_name_row = mysongs.loc[song_number]
-            print("songs name is:")
-            print(songs_name_row)
-            song_number=songs_dictionary[song_name]
-            print("song number is:")
-            print(song_number)
-            for notes in songs[song_number]:
-                ser.write(notes.encode())
-                print ("send:"+notes)
-                time.sleep(1)
+                        time.sleep(0.5)
+                    elif int(notes)> 40:
+                        LED={}
+                        LED["start_fan"]=41
+                        LED["stop_fan"]=42
+                        LED["start_LED"]=43
+                        LED["stop_LED"]=44
+                        LED["vary_the_color_of_the_LED"]=45
+                        LED["stop_45"]=46
+                        start_fan=LED["start_fan"]
+                        stop_fan=LED["stop_fan"]
+                        start_LED=LED["start_LED"]
+                        stop_LED=LED["stop_LED"]
+                        vary_the_color_of_the_LED=LED["vary_the_color_of_the_LED"]
+                        stop_45=LED["stop_45"]
+
         else :
             return
 
