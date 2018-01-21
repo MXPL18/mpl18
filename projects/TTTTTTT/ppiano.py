@@ -80,10 +80,11 @@ def run():
                 if notes.isdigit():
                     ser.write(notes.encode())
                     print ("send:"+notes)
+                    ser.write("A".encode())
                     if int(notes)< 40:
-                        time.sleep(1.5)
+                        time.sleep(0.5)
                     else:
-                        time.sleep(1.5)
+                        time.sleep(0.1)
                 else:
                     time.sleep(1)
 
@@ -102,10 +103,11 @@ def run():
                 if notes.isdigit():
                     ser.write(notes.encode())
                     print ("send:"+notes)
+                    ser.write("A".encode())
                     if int(notes)< 40:
-                        time.sleep(1.5)
+                        time.sleep(0.5)
                     else:
-                        time.sleep(1.5)
+                        time.sleep(0.1)
                 else:
                     time.sleep(1)
         else :
