@@ -69,6 +69,7 @@ def run():
                 if notes.isdigit():
                     ser.write(notes.encode())
                     print ("send:"+notes)
+                    print('A')
                     time.sleep(1)
                 else:
                     if notes in dic:
@@ -76,6 +77,7 @@ def run():
                         print(s_notes)
                         ser.write(s_notes.encode())
                         print ("send:"+s_notes)
+                        print('A')
         elif action == "2":
             print ('select in which song do you want to play:tinklestar,dadaotuhao,RadetzkyMarsch,xjbsong,clash royale,q and others for quit')
             song_name = input("> ")
