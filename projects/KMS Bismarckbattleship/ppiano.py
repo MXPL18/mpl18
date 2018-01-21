@@ -31,21 +31,6 @@ for p in ports:
 #songs_dictionary={'tinklestar':1,'dadaotuhao':2,'RadetzkyMarsch':3,'xjbsong':4,'clash royale':5}
 
 def run():
-
-mysongs_data=[]
-f=open("mysongs.csv","r")
-data =  f.read()
-rows = data.split('\n')
-for row in rows:
-    split_row = row.split(",")
-    mysongs_data.append(split_row)
-for row in songs_data:
-    mysongs.append(row[1])
-count = 0
-for item in  mysongs:
-    count = count + 1
-new_mysongs = songs[1:6]
-
     action = "empty"
     while action != "q":
         print ('select 1.input song sequence, number,select 2 , input song namen , q and others for quit')
